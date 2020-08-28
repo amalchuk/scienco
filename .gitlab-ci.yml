@@ -1,0 +1,31 @@
+stages:
+  - testing
+  - publishing
+
+code quality:
+  image: python:3.8.5-buster
+  stage: testing
+  script:
+    - make pip-install-development
+    - make coverage
+  artifacts:
+    paths:
+      - htmlcov
+    expire_in: 3 days
+
+pages:
+  image: debian:latest
+  stage: publishing
+  dependencies:
+    - code quality
+  script:
+    - rm --force --recursive public
+    - cp --recursive htmlcov public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  only:
+    - master
+    - schedules
+    - tags

@@ -1,0 +1,22 @@
+# Byte-compiled / optimized files:
+*.py[cod]
+__pycache__/
+
+# Environment / workspace settings:
+.venv/
+.vscode/
+
+# Distribution / packaging:
+*.egg
+*.egg-info/
+*.lock
+build/
+dist/
+
+# Code testing / coverage:
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Linting:
+.mypy_cache/

@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "scienco"
+version = "0.1.0"
+authors = ["Andrew Malchuk <andrew.malchuk@yandex.ru>"]
+description = "Calculate the readability of text using one of a variety of computed indexes"
+repository = "https://gitlab.com/amalchuk/scienco"
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.8, <4.0"
+
+[tool.poetry.dev-dependencies]
+pylint = ">=2.5.3, <3.0"
+pytest = ">=6.0"
+coverage = { version = ">=5.2", extras = ["toml"]}
+isort = { version = ">=4.3.5, <5.0", extras = ["pyproject"]}
+mypy = { version = "*", allow-prereleases = true }
+
+[tool.pylint.messages_control]
+disable = ["all"]
+enable = ["E", "F", "W0101", "W0109", "W0301", "W0602", "W0612", "W0711", "W1302", "W1401", "W1501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["scienco"]
+
+[tool.coverage.report]
+precision = 2
+
+[tool.isort]
+combine_as_imports = true
+combine_star = true
+line_length = 125
+multi_line_output = 2
+
+[build-system]
+requires = ["pip", "setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
