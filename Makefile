@@ -1,4 +1,4 @@
-.PHONY: all install pip-update-setuptools pip-install-development update test coverage clean
+.PHONY: all install pip-update-setuptools pip-install-development install-development build test coverage clean
 
 all: install
 
