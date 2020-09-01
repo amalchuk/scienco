@@ -1,4 +1,4 @@
-.PHONY: all install pip-update-setuptools pip-install-development install-development build test coverage clean
+.PHONY: all install pip-update-setuptools install-development build test coverage clean
 
 all: install
 
@@ -8,15 +8,11 @@ install:
 
 pip-update-setuptools:
 	@echo "Updating the pip, setuptools and wheel packages"
-	@python -m pip install pip setuptools wheel --upgrade --force-reinstall --no-cache-dir
+	@python -m pip install pip setuptools wheel --upgrade --force-reinstall --quiet --no-cache-dir
 
-pip-install-development: pip-update-setuptools
-	@echo "Installing the dependencies for development"
-	@pip install --requirement requirements-dev.txt --upgrade --force-reinstall --no-cache-dir
-
-install-development: pip-install-development
+install-development: pip-update-setuptools
 	@echo "Installing the package in the development mode"
-	@python setup.py develop
+	@pip install --editable .[dev] --upgrade --force-reinstall --quiet --no-cache-dir
 
 build:
 	@echo "Building the package"
