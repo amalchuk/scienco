@@ -6,7 +6,7 @@ code quality:
   image: python:3.8.5-buster
   stage: testing
   script:
-    - make pip-install-development
+    - make install-development
     - make coverage
   artifacts:
     paths:
