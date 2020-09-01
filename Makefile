@@ -1,10 +1,10 @@
 .PHONY: all install pip-update-setuptools pip-install-development update test coverage clean
 
-all: install test clean
+all: install
 
 install:
-	@echo "Installing the dependencies"
-	@poetry install --no-root --quiet --no-interaction
+	@echo "Installing the package"
+	@python setup.py install
 
 pip-update-setuptools:
 	@echo "Updating the pip, setuptools and wheel packages"
@@ -12,12 +12,15 @@ pip-update-setuptools:
 
 pip-install-development: pip-update-setuptools
 	@echo "Installing the dependencies for development"
-	@pip install --requirement requirements-dev.txt --no-deps --upgrade --require-hashes --quiet --no-cache-dir
+	@pip install --requirement requirements-dev.txt --upgrade --force-reinstall --no-cache-dir
 
-update:
-	@echo "Downloading the latest versions of the dependencies"
-	@poetry update --lock --quiet --no-interaction
-	@poetry export --format requirements.txt --output requirements-dev.txt --dev
+install-development: pip-install-development
+	@echo "Installing the package in the development mode"
+	@python setup.py develop
+
+build:
+	@echo "Building the package"
+	@python setup.py build bdist_wheel sdist
 
 test:
 	@echo "Running the test cases"

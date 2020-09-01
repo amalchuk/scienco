@@ -8,11 +8,7 @@ Calculate the readability of text using one of a variety of computed indexes.
 Installation
 ------------
 ```shell
-# Using a modern dependency manager:
 $ make install
-
-# ... or using a legacy pip:
-$ make pip-install-development
 ```
 
 Distribution
