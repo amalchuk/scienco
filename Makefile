@@ -1,10 +1,14 @@
-.PHONY: all install pip-update-setuptools install-development build test coverage clean
+.PHONY: all install build pip-update-setuptools install-development test coverage clean
 
 all: install
 
 install:
 	@echo "Installing the package"
 	@python setup.py install
+
+build:
+	@echo "Building the package"
+	@python setup.py build bdist_wheel sdist
 
 pip-update-setuptools:
 	@echo "Updating the pip, setuptools and wheel packages"
@@ -13,10 +17,6 @@ pip-update-setuptools:
 install-development: pip-update-setuptools
 	@echo "Installing the package in the development mode"
 	@pip install --editable .[dev] --upgrade --force-reinstall --quiet --no-cache-dir
-
-build:
-	@echo "Building the package"
-	@python setup.py build bdist_wheel sdist
 
 test:
 	@echo "Running the test cases"

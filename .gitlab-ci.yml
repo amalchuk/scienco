@@ -2,22 +2,33 @@ stages:
   - testing
   - publishing
 
-code quality:
-  image: python:3.8.5-buster
+.testing_template: &python_matrix
   stage: testing
   script:
     - make install-development
     - make coverage
+
+coverage:py3.6:
+  <<: *python_matrix
+  image: python:3.6-buster
+
+coverage:py3.7:
+  <<: *python_matrix
+  image: python:3.7-buster
+
+coverage:py3.8:
+  <<: *python_matrix
+  image: python:3.8-buster
   artifacts:
     paths:
       - htmlcov
     expire_in: 3 days
 
 pages:
-  image: debian:latest
+  image: debian:buster
   stage: publishing
   dependencies:
-    - code quality
+    - coverage:py3.8
   script:
     - rm --force --recursive public
     - cp --recursive htmlcov public
