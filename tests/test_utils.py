@@ -13,3 +13,8 @@ def test_clamp() -> None:
     assert clamp("b", "b", "c") == "b"
     assert clamp("c", "b", "c") == "c"
     assert clamp("d", "b", "c") == "c"
+
+    assert clamp(b"a", b"b", b"c") == b"b"
+    assert clamp(b"b", b"b", b"c") == b"b"
+    assert clamp(b"c", b"b", b"c") == b"c"
+    assert clamp(b"d", b"b", b"c") == b"c"

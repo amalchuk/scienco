@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
 
 import re
-from itertools import chain, product
+from itertools import chain
+from itertools import product
 from string import ascii_letters
-from typing import Iterator, TypedDict
+from typing import Iterator
 
-from scienco.constants import cyrillic_letters, sentences_pattern, words_pattern
+from scienco.metrics.constants import cyrillic_letters
+from scienco.metrics.constants import sentences_pattern
+from scienco.metrics.constants import words_pattern
+from scienco.types import Metrics
 
 __all__ = ("compute_metrics", "sentences", "syllables", "words")
-
-
-class Metrics(TypedDict):
-    is_russian: bool
-    sentences: int
-    words: int
-    letters: int
-    syllables: int
 
 
 def sentences(string: str) -> Iterator[str]:
@@ -91,10 +87,9 @@ def compute_metrics(string: str) -> Metrics:
     syllables_count = sum(map(syllables, words_list))
     del words_list
 
-    return {
-        "is_russian": is_russian,
-        "sentences": sentences_count,
-        "words": words_count,
-        "letters": letters_count,
-        "syllables": syllables_count
-    }
+    return Metrics(
+        is_russian=is_russian,
+        sentences=sentences_count,
+        words=words_count,
+        letters=letters_count,
+        syllables=syllables_count)

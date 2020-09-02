@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from scienco.indexes import automated_readability_index, coleman_liau_index, compute_indexes, flesch_reading_ease_score
+from scienco.indexes import Indexes
+from scienco.indexes import automated_readability_index
+from scienco.indexes import coleman_liau_index
+from scienco.indexes import compute_indexes
+from scienco.indexes import flesch_reading_ease_score
 
 
 def test_flesch_reading_ease_score() -> None:
@@ -65,11 +69,13 @@ def test_coleman_liau_index() -> None:
 
 def test_compute_indexes() -> None:
     value = compute_indexes(sentences=100, words=10000, letters=30000, syllables=2500, is_russian=True)
-    assert 76.0 <= value["flesch_reading_ease_score"] <= 77.0
-    assert 15.0 <= value["automated_readability_index"] <= 16.0
-    assert 0.0 <= value["coleman_liau_index"] <= 1.0
+    assert isinstance(value, Indexes)
+    assert 76.0 <= value.flesch_reading_ease_score <= 77.0
+    assert 15.0 <= value.automated_readability_index <= 16.0
+    assert 0.0 <= value.coleman_liau_index <= 1.0
 
     value = compute_indexes(sentences=100, words=10000, letters=30000, syllables=2500, is_russian=False)
-    assert 84.0 <= value["flesch_reading_ease_score"] <= 85.0
-    assert 42.0 <= value["automated_readability_index"] <= 43.0
-    assert 1.0 <= value["coleman_liau_index"] <= 2.0
+    assert isinstance(value, Indexes)
+    assert 84.0 <= value.flesch_reading_ease_score <= 85.0
+    assert 42.0 <= value.automated_readability_index <= 43.0
+    assert 1.0 <= value.coleman_liau_index <= 2.0

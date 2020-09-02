@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name="scienco",
-    version="0.1.0",
+    version="0.1.1b0",
     author="Andrew Malchuk",
     author_email="andrew.malchuk@yandex.ru",
     description="Calculate the readability of text using one of a variety of computed indexes",
@@ -14,7 +14,7 @@ setup(
     url="https://gitlab.com/amalchuk/scienco",
     license="MIT",
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Education",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
@@ -23,6 +23,8 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Text Processing :: Indexing",
         "Typing :: Typed"
@@ -34,7 +36,7 @@ setup(
     extras_require={
         "dev": ["coverage", "isort", "mypy", "pytest"]
     },
-    python_requires=">=3.8, <4.0",
+    python_requires=">=3.6, <4.0",
     include_package_data=True,
     zip_safe=False
 )
