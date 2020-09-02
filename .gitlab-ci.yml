@@ -8,15 +8,15 @@ stages:
     - make install-development
     - make coverage
 
-code quality:python_v3.6:
+coverage:py3.6:
   <<: *python_matrix
   image: python:3.6-buster
 
-code quality:python_v3.7:
+coverage:py3.7:
   <<: *python_matrix
   image: python:3.7-buster
 
-code quality:python_v3.8:
+coverage:py3.8:
   <<: *python_matrix
   image: python:3.8-buster
   artifacts:
@@ -25,10 +25,10 @@ code quality:python_v3.8:
     expire_in: 3 days
 
 pages:
-  image: debian:latest
+  image: debian:buster
   stage: publishing
   dependencies:
-    - code quality:python_v3.8
+    - coverage:py3.8
   script:
     - rm --force --recursive public
     - cp --recursive htmlcov public

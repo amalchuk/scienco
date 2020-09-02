@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from scienco.indexes import Indexes
-from scienco.indexes import automated_readability_index
-from scienco.indexes import coleman_liau_index
-from scienco.indexes import compute_indexes
-from scienco.indexes import flesch_reading_ease_score
+from scienco import Indexes
+from scienco import automated_readability_index
+from scienco import coleman_liau_index
+from scienco import compute_indexes
+from scienco import flesch_reading_ease_score
 
 
 def test_flesch_reading_ease_score() -> None:

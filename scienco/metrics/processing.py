@@ -11,7 +11,7 @@ from scienco.metrics.constants import sentences_pattern
 from scienco.metrics.constants import words_pattern
 from scienco.types import Metrics
 
-__all__ = ("compute_metrics", "sentences", "syllables", "words")
+__all__ = ("compute_metrics", "sentences", "syllables", "words", "Metrics")
 
 
 def sentences(string: str) -> Iterator[str]:

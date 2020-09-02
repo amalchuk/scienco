@@ -6,4 +6,4 @@ from scienco.metrics.processing import syllables
 from scienco.metrics.processing import words
 from scienco.types import Metrics
 
-__all__ = ("Metrics", "compute_metrics", "sentences", "syllables", "words")
+__all__ = ("compute_metrics", "sentences", "syllables", "words", "Metrics")

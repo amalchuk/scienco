@@ -6,4 +6,4 @@ from scienco.indexes.processing import compute_indexes
 from scienco.indexes.processing import flesch_reading_ease_score
 from scienco.types import Indexes
 
-__all__ = ("Indexes", "automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score")
+__all__ = ("automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score", "Indexes")

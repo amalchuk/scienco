@@ -9,7 +9,7 @@ from scienco.indexes.constants import FRES_RU
 from scienco.types import Indexes
 from scienco.utils import clamp
 
-__all__ = ("automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score")
+__all__ = ("automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score", "Indexes")
 
 
 def flesch_reading_ease_score(sentences: int, words: int, syllables: int, *, is_russian: bool = False) -> float:

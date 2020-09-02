@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from scienco.metrics.processing import Metrics
-from scienco.metrics.processing import compute_metrics
-from scienco.metrics.processing import sentences
-from scienco.metrics.processing import syllables
-from scienco.metrics.processing import words
+from scienco import Metrics
+from scienco import compute_metrics
+from scienco import sentences
+from scienco import syllables
+from scienco import words
 
 
 def test_sentences() -> None:
