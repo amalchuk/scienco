@@ -7,28 +7,28 @@ stages:
   script:
     - make install-development
     - make coverage
-
-coverage:py3.6:
-  <<: *python_matrix
-  image: python:3.6-buster
-
-coverage:py3.7:
-  <<: *python_matrix
-  image: python:3.7-buster
-
-coverage:py3.8:
-  <<: *python_matrix
-  image: python:3.8-buster
   artifacts:
     paths:
       - htmlcov
     expire_in: 3 days
 
+coverage:py36:
+  <<: *python_matrix
+  image: python:3.6-buster
+
+coverage:py37:
+  <<: *python_matrix
+  image: python:3.7-buster
+
+coverage:py38:
+  <<: *python_matrix
+  image: python:3.8-buster
+
 pages:
   image: debian:buster
   stage: publishing
   dependencies:
-    - coverage:py3.8
+    - coverage:py38
   script:
     - rm --force --recursive public
     - cp --recursive htmlcov public
