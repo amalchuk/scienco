@@ -8,21 +8,25 @@ stages:
     - make install-development
     - make coverage
 
-coverage:py3.6:
+coverage:cpython36:
   <<: *python_matrix
   image: python:3.6-buster
 
-coverage:py3.7:
+coverage:cpython37:
   <<: *python_matrix
   image: python:3.7-buster
 
-coverage:py3.8:
+coverage:cpython38:
   <<: *python_matrix
   image: python:3.8-buster
   artifacts:
     paths:
       - htmlcov
     expire_in: 3 days
+
+coverage:pypy36:
+  <<: *python_matrix
+  image: pypy:3.6-buster
 
 pages:
   image: debian:buster
