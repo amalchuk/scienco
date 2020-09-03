@@ -32,7 +32,7 @@ pages:
   image: debian:buster
   stage: publishing
   dependencies:
-    - coverage:py3.8
+    - coverage:cpython38
   script:
     - rm --force --recursive public
     - cp --recursive htmlcov public
