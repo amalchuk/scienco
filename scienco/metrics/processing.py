@@ -15,6 +15,9 @@ __all__ = ("compute_metrics", "sentences", "syllables", "words", "Metrics")
 
 
 def sentences(string: str) -> Iterator[str]:
+    """
+    Tokenize a paragraph into sentences.
+    """
     pattern = re.compile(sentences_pattern, re.UNICODE)
     previous = 0
 
@@ -30,6 +33,9 @@ def sentences(string: str) -> Iterator[str]:
 
 
 def words(string: str) -> Iterator[str]:
+    """
+    Tokenize a sentence into words.
+    """
     pattern = re.compile(words_pattern, re.UNICODE)
 
     for match in pattern.finditer(string):
@@ -40,6 +46,9 @@ def words(string: str) -> Iterator[str]:
 
 
 def syllables(string: str) -> int:
+    """
+    Return the number of syllables in a word.
+    """
     string = string.lower() if not string.islower() else string
 
     # Russian vowels:

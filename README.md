@@ -14,15 +14,15 @@ $ make install
 Usage
 -----
 ```python
-import scienco
+>>> import scienco
 
 # Calculate the metrics:
-scienco.compute_metrics("Lorem ipsum dolor sit amet ...")
->>> Metrics(is_russian=False, sentences=32, words=250, letters=1329, syllables=489)
+>>> scienco.compute_metrics("Lorem ipsum dolor sit amet ...")
+Metrics(is_russian=False, sentences=32, words=250, letters=1329, syllables=489)
 
 # Calculate the readability indexes:
-scienco.compute_indexes(sentences=32, words=250, letters=1329, syllables=489, is_russian=False)
->>> Indexes(flesch_reading_ease_score=33.43, automated_readability_index=7.51, coleman_liau_index=11.67)
+>>> scienco.compute_indexes(sentences=32, words=250, letters=1329, syllables=489, is_russian=False)
+Indexes(flesch_reading_ease_score=33.43, automated_readability_index=7.51, coleman_liau_index=11.67)
 ```
 
 Distribution
