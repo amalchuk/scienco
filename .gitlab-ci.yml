@@ -1,6 +1,5 @@
 stages:
   - testing
-  - coverage
   - publishing
 
 .testing_template: &python_matrix
@@ -21,9 +20,9 @@ testing:py3.8:
   <<: *python_matrix
   image: python:3.8-buster
 
-coverage:
+pages:
   image: python:3.8-buster
-  stage: coverage
+  stage: publishing
   needs:
     - testing:py3.6
     - testing:py3.7
@@ -31,19 +30,6 @@ coverage:
   script:
     - make install-development
     - make coverage
-  artifacts:
-    paths:
-      - htmlcov
-    expire_in: 3 days
-
-pages:
-  image: debian:buster
-  stage: publishing
-  dependencies:
-    - coverage
-  script:
-    - rm --force --recursive public
-    - cp --recursive htmlcov public
   artifacts:
     paths:
       - public

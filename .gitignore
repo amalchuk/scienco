@@ -15,7 +15,7 @@ dist/
 # Code testing / coverage:
 .coverage
 .pytest_cache/
-htmlcov/
+public/
 
 # Linting:
 .mypy_cache/

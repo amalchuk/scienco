@@ -5,6 +5,10 @@ Scienco
 
 Calculate the readability of text using one of a variety of computed indexes.
 
+Requirements
+------------
+Python 3.6+
+
 Installation
 ------------
 ```shell
