@@ -1,5 +1,6 @@
 stages:
   - testing
+  - coverage
   - publishing
 
 .testing_template: &python_matrix
@@ -20,9 +21,9 @@ testing:py3.8:
   <<: *python_matrix
   image: python:3.8-buster
 
-pages:
+code quality:
   image: python:3.8-buster
-  stage: publishing
+  stage: coverage
   needs:
     - testing:py3.6
     - testing:py3.7
@@ -30,6 +31,13 @@ pages:
   script:
     - make install-development
     - make coverage
+
+pages:
+  image: python:3.8-buster
+  stage: publishing
+  script:
+    - make install-development
+    - make docs
   artifacts:
     paths:
       - public
