@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from pathlib import Path
 from setuptools import setup
 
 setup(
     name="scienco",
-    version="0.1.2",
+    version="0.1.3",
     author="Andrew Malchuk",
     author_email="andrew.malchuk@yandex.ru",
     description="Calculate the readability of text using one of a variety of computed indexes",
-    long_description=open("README.md", encoding="utf-8").read(),
+    long_description=Path(__file__).with_name("README.md").read_text("utf-8"),
     long_description_content_type="text/markdown",
     url="https://gitlab.com/amalchuk/scienco",
     license="MIT",
@@ -33,9 +34,6 @@ setup(
     packages=["scienco", "scienco.indexes", "scienco.metrics"],
     package_data={
         "scienco": ["py.typed"]
-    },
-    extras_require={
-        "dev": ["coverage", "isort", "mypy", "pytest"]
     },
     python_requires=">=3.6, <4.0",
     include_package_data=True,

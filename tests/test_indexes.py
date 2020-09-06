@@ -8,17 +8,13 @@ from scienco import flesch_reading_ease_score
 
 
 def test_flesch_reading_ease_score() -> None:
-    value = flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=True)
-    assert value == 0.0
-
-    value = flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=True)
-    assert value == 0.0
-
-    value = flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=False)
-    assert value == 0.0
-
-    value = flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=False)
-    assert value == 0.0
+    null_metrics = (
+        flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=True),
+        flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=True),
+        flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=False),
+        flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=False)
+    )
+    assert all(value == 0.0 for value in null_metrics)
 
     value = flesch_reading_ease_score(sentences=100, words=10000, syllables=2500, is_russian=True)
     assert 76.0 <= value <= 77.0
@@ -28,17 +24,13 @@ def test_flesch_reading_ease_score() -> None:
 
 
 def test_automated_readability_index() -> None:
-    value = automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=True)
-    assert value == 0.0
-
-    value = automated_readability_index(sentences=100, words=0, letters=30000, is_russian=True)
-    assert value == 0.0
-
-    value = automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=False)
-    assert value == 0.0
-
-    value = automated_readability_index(sentences=100, words=0, letters=30000, is_russian=False)
-    assert value == 0.0
+    null_metrics = (
+        automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=True),
+        automated_readability_index(sentences=100, words=0, letters=30000, is_russian=True),
+        automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=False),
+        automated_readability_index(sentences=100, words=0, letters=30000, is_russian=False)
+    )
+    assert all(value == 0.0 for value in null_metrics)
 
     value = automated_readability_index(sentences=100, words=10000, letters=30000, is_russian=True)
     assert 15.0 <= value <= 16.0
@@ -48,17 +40,13 @@ def test_automated_readability_index() -> None:
 
 
 def test_coleman_liau_index() -> None:
-    value = coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=True)
-    assert value == 0.0
-
-    value = coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=True)
-    assert value == 0.0
-
-    value = coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=False)
-    assert value == 0.0
-
-    value = coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=False)
-    assert value == 0.0
+    null_metrics = (
+        coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=True),
+        coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=True),
+        coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=False),
+        coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=False)
+    )
+    assert all(value == 0.0 for value in null_metrics)
 
     value = coleman_liau_index(sentences=100, words=10000, letters=30000, is_russian=True)
     assert 0.0 <= value <= 1.0

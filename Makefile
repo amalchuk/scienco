@@ -1,10 +1,10 @@
-.PHONY: all install build install-development test coverage clean
+.PHONY: all install build install-development docs test coverage clean
 
-all: install
+all: install clean
 
 install:
 	@echo "Installing the package"
-	@python setup.py install
+	@python setup.py install --quiet
 
 build:
 	@echo "Building the package"
@@ -12,7 +12,12 @@ build:
 
 install-development:
 	@echo "Installing the package in the development mode"
-	@pip install --editable .[dev] --upgrade --force-reinstall --quiet --no-cache-dir
+	@python setup.py develop --quiet
+	@pip install --requirement requirements-dev.txt --upgrade --force-reinstall --quiet --no-cache-dir
+
+docs:
+	@echo "Build the documentation"
+	@mkdocs build --clean
 
 test:
 	@echo "Running the test cases"

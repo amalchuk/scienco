@@ -29,7 +29,7 @@ Indexes(flesch_reading_ease_score=33.43, automated_readability_index=7.51, colem
 
 Distribution
 ------------
-This project is licensed under the terms of the [MIT License](LICENSE).
+This project is licensed under the terms of the [MIT License](license.md).
 
 [homepage]: <https://gitlab.com/amalchuk/scienco>
 [pipeline]: <https://gitlab.com/amalchuk/scienco/badges/master/pipeline.svg?style=flat-square>

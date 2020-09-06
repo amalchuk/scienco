@@ -67,5 +67,4 @@ def compute_indexes(sentences: int, words: int, letters: int, syllables: int, *,
     return Indexes(
         flesch_reading_ease_score=flesch_reading_ease_score_value,
         automated_readability_index=automated_readability_index_value,
-        coleman_liau_index=coleman_liau_index_value
-    )
+        coleman_liau_index=coleman_liau_index_value)
