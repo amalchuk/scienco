@@ -3,7 +3,7 @@ API Reference
 
 Module `scienco.indexes`
 ------------------------
-### scienco.indexes.**flesch_reading_ease_score**
+### flesch_reading_ease_score
 
 Calculate the Flesch-Kincaid score.
 
@@ -27,7 +27,7 @@ flesch_reading_ease_score(sentences: int, words: int, syllables: int, *, is_russ
 
 **Returns:** `float`
 
-### scienco.indexes.**automated_readability_index**
+### automated_readability_index
 
 Calculate the Automated readability index.
 
@@ -51,7 +51,7 @@ automated_readability_index(sentences: int, words: int, letters: int, *, is_russ
 15.79
 ```
 
-### scienco.indexes.**coleman_liau_index**
+### coleman_liau_index
 
 Calculate the Coleman-Liau index.
 
@@ -75,7 +75,7 @@ coleman_liau_index(sentences: int, words: int, letters: int, *, is_russian: bool
 1.54
 ```
 
-### scienco.indexes.**compute_indexes**
+### compute_indexes
 
 Calculate the readability indexes.
 
@@ -92,7 +92,7 @@ compute_indexes(sentences: int, words: int, letters: int, syllables: int, *, is_
 - **syllables** - number of the syllables
 - **is_russian** - specify whether you are using Russian language (otherwise English will be used)
 
-**Returns:** [`Indexes`](#sciencotypesindexes)
+**Returns:** [`Indexes`](#indexes)
 
 **Example:**
 ```pycon
@@ -102,7 +102,7 @@ Indexes(flesch_reading_ease_score=84.19, automated_readability_index=42.7, colem
 
 Module `scienco.metrics`
 ------------------------
-### scienco.metrics.**sentences**
+### sentences
 
 Tokenize a paragraph into sentences.
 
@@ -117,7 +117,7 @@ sentences(string: str)
 
 **Returns:** [`Iterator[str]`][iterator]
 
-### scienco.metrics.**words**
+### words
 
 Tokenize a sentence into words.
 
@@ -132,7 +132,7 @@ words(string: str)
 
 **Returns:** [`Iterator[str]`][iterator]
 
-### scienco.metrics.**syllables**
+### syllables
 
 Return the number of syllables in a word.
 
@@ -147,7 +147,7 @@ syllables(string: str)
 
 **Returns:** `int`
 
-### scienco.metrics.**compute_metrics**
+### compute_metrics
 
 Calculate the metrics.
 
@@ -160,11 +160,11 @@ compute_metrics(string: str)
 
 - **string** - document text
 
-**Returns:** [`Metrics`](#sciencotypesmetrics)
+**Returns:** [`Metrics`](#metrics)
 
 Module `scienco.types`
 ----------------------
-### scienco.types.**Metrics**
+### Metrics
 
 The [`namedtuple`][namedtuple] object with specified fields.
 
@@ -178,7 +178,7 @@ class Metrics(NamedTuple):
     syllables: int
 ```
 
-### scienco.types.**Indexes**
+### Indexes
 
 The [`namedtuple`][namedtuple] object with specified fields.
 

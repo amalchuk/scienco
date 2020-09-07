@@ -6,6 +6,14 @@ site_url: https://amalchuk.gitlab.io/scienco
 site_dir: public
 theme:
   name: material
+  palette:
+    primary: blue
+    accent: blue
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+  icon:
+    logo: fontawesome/solid/graduation-cap
 
 repo_name: amalchuk/scienco
 repo_url: https://gitlab.com/amalchuk/scienco

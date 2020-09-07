@@ -29,16 +29,8 @@ code quality:
     - testing:py3.7
     - testing:py3.8
   script:
-    - make build
     - make install-development
     - make coverage
-  artifacts:
-    paths:
-      - dist/scienco-*.tar.gz
-      - dist/scienco-*.tar.xz
-      - dist/scienco-*.whl
-      - dist/scienco-*.zip
-    expire_in: 1 week
 
 pages:
   image: python:3.8-buster
@@ -46,7 +38,6 @@ pages:
   script:
     - make install-development
     - make docs
-  dependencies: []
   artifacts:
     paths:
       - public
