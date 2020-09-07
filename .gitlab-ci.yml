@@ -35,7 +35,7 @@ code quality:
 deployment:
   stage: publishing
   variables:
-    TWINE_USERNAME: gitlab-ci-token
+    TWINE_USERNAME: ${CI_REGISTRY_USER}
     TWINE_PASSWORD: ${CI_JOB_TOKEN}
     TWINE_REPOSITORY_URL: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi
   script: make upload
