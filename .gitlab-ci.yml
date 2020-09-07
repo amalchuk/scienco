@@ -1,3 +1,5 @@
+image: python:3.8-buster
+
 stages:
   - testing
   - coverage
@@ -5,6 +7,8 @@ stages:
 
 .testing_template: &python_matrix
   stage: testing
+  before_script:
+    - python --version
   script:
     - make install-development
     - make test
@@ -19,10 +23,8 @@ testing:py3.7:
 
 testing:py3.8:
   <<: *python_matrix
-  image: python:3.8-buster
 
 code quality:
-  image: python:3.8-buster
   stage: coverage
   needs:
     - testing:py3.6
@@ -33,7 +35,6 @@ code quality:
     - make coverage
 
 pages:
-  image: python:3.8-buster
   stage: publishing
   script:
     - make install-development

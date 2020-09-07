@@ -12,8 +12,9 @@ build:
 
 install-development:
 	@echo "Installing the package in the development mode"
+	@python -m pip install pip setuptools wheel --upgrade --quiet --no-cache-dir
 	@python setup.py develop --quiet
-	@pip install --requirement requirements-dev.txt --upgrade --force-reinstall --quiet --no-cache-dir
+	@python -m pip install --requirement requirements-dev.txt --upgrade --quiet --no-cache-dir
 
 docs:
 	@echo "Build the documentation"
