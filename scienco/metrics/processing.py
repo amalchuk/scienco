@@ -79,6 +79,9 @@ def syllables(string: str) -> int:
 
 
 def compute_metrics(string: str) -> Metrics:
+    """
+    Calculate the metrics.
+    """
     russian_letters = sum(map(string.count, cyrillic_letters))
     english_letters = sum(map(string.count, ascii_letters))
 

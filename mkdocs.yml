@@ -1,4 +1,5 @@
 site_name: Scienco
+site_author: Andrew Malchuk
 site_description: Calculate the readability of text using one of a variety of computed indexes
 site_url: https://amalchuk.gitlab.io/scienco
 
@@ -11,8 +12,9 @@ repo_url: https://gitlab.com/amalchuk/scienco
 edit_uri: ""
 
 nav:
-  - Introduction: "index.md"
-  - Distribution: "license.md"
+  - Introduction: index.md
+  - API Reference: api_reference.md
+  - Distribution: distribution.md
 
 markdown_extensions:
   - codehilite
