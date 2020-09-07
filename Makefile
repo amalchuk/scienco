@@ -18,7 +18,7 @@ install-development:
 
 upload: build
 	@echo "Upload package to a PyPI"
-	@find dist -type f | xargs twine upload --skip-existing
+	@find dist -type f | xargs twine upload --disable-progress-bar
 
 docs:
 	@echo "Build the documentation"
