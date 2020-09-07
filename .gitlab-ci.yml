@@ -1,5 +1,9 @@
 image: python:3.8-buster
 
+before_script:
+  - python --version
+  - make install-development
+
 stages:
   - testing
   - coverage
@@ -7,11 +11,7 @@ stages:
 
 .testing_template: &python_matrix
   stage: testing
-  before_script:
-    - python --version
-  script:
-    - make install-development
-    - make test
+  script: make test
 
 testing:py3.6:
   <<: *python_matrix
@@ -30,15 +30,18 @@ code quality:
     - testing:py3.6
     - testing:py3.7
     - testing:py3.8
-  script:
-    - make install-development
-    - make coverage
+  script: make coverage
+
+deployment:
+  stage: publishing
+  script: make upload
+  only:
+    - master
+    - tags
 
 pages:
   stage: publishing
-  script:
-    - make install-development
-    - make docs
+  script: make docs
   artifacts:
     paths:
       - public
