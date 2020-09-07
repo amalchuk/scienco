@@ -41,7 +41,6 @@ deployment:
   script: make upload
   only:
     - master
-    - tags
 
 pages:
   stage: publishing
@@ -52,4 +51,3 @@ pages:
     expire_in: 1 week
   only:
     - master
-    - tags
