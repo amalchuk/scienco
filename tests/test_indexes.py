@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from typing import List
+
 from scienco import Indexes
 from scienco import automated_readability_index
 from scienco import coleman_liau_index
@@ -8,12 +10,12 @@ from scienco import flesch_reading_ease_score
 
 
 def test_flesch_reading_ease_score() -> None:
-    null_metrics = (
+    null_metrics: List[float] = [
         flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=True),
         flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=True),
         flesch_reading_ease_score(sentences=0, words=10000, syllables=2500, is_russian=False),
         flesch_reading_ease_score(sentences=100, words=0, syllables=2500, is_russian=False)
-    )
+    ]
     assert all(value == 0.0 for value in null_metrics)
 
     value = flesch_reading_ease_score(sentences=100, words=10000, syllables=2500, is_russian=True)
@@ -24,12 +26,12 @@ def test_flesch_reading_ease_score() -> None:
 
 
 def test_automated_readability_index() -> None:
-    null_metrics = (
+    null_metrics: List[float] = [
         automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=True),
         automated_readability_index(sentences=100, words=0, letters=30000, is_russian=True),
         automated_readability_index(sentences=0, words=10000, letters=30000, is_russian=False),
         automated_readability_index(sentences=100, words=0, letters=30000, is_russian=False)
-    )
+    ]
     assert all(value == 0.0 for value in null_metrics)
 
     value = automated_readability_index(sentences=100, words=10000, letters=30000, is_russian=True)
@@ -40,12 +42,12 @@ def test_automated_readability_index() -> None:
 
 
 def test_coleman_liau_index() -> None:
-    null_metrics = (
+    null_metrics: List[float] = [
         coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=True),
         coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=True),
         coleman_liau_index(sentences=100, words=0, letters=30000, is_russian=False),
         coleman_liau_index(sentences=100, words=90, letters=30000, is_russian=False)
-    )
+    ]
     assert all(value == 0.0 for value in null_metrics)
 
     value = coleman_liau_index(sentences=100, words=10000, letters=30000, is_russian=True)

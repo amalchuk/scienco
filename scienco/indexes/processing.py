@@ -61,6 +61,9 @@ def coleman_liau_index(sentences: int, words: int, letters: int, *, is_russian: 
 
 
 def compute_indexes(sentences: int, words: int, letters: int, syllables: int, *, is_russian: bool = False) -> Indexes:
+    """
+    Calculate the readability indexes.
+    """
     flesch_reading_ease_score_value = flesch_reading_ease_score(sentences, words, syllables, is_russian=is_russian)
     automated_readability_index_value = automated_readability_index(sentences, words, letters, is_russian=is_russian)
     coleman_liau_index_value =coleman_liau_index(sentences, words, letters, is_russian=is_russian)

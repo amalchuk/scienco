@@ -11,8 +11,8 @@ Python 3.6+
 
 Installation
 ------------
-```shell
-$ make install
+```
+$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.4#egg=scienco
 ```
 
 Usage

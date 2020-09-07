@@ -26,7 +26,6 @@ test:
 coverage: test
 	@echo "Analyzing the code coverage for all test cases"
 	@coverage report
-	@coverage html
 
 clean:
 	@echo "Delete all temporary files"
