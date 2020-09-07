@@ -1,7 +1,8 @@
 Scienco
 =======
-[![pipeline status][pipeline]][homepage]
-[![coverage report][coverage]][homepage]
+[![pipeline status][pipeline]](index.md)
+[![coverage report][coverage]](index.md)
+[![distribution][license]](distribution.md)
 
 Calculate the readability of text using one of a variety of computed indexes.
 
@@ -12,7 +13,7 @@ Python 3.6+
 Installation
 ------------
 ```
-$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.4#egg=scienco
+$ pip install scienco
 ```
 
 Usage
@@ -31,6 +32,6 @@ Distribution
 ------------
 This project is licensed under the terms of the [MIT License](distribution.md).
 
-[homepage]: <https://gitlab.com/amalchuk/scienco>
 [pipeline]: <https://gitlab.com/amalchuk/scienco/badges/master/pipeline.svg?style=flat-square>
 [coverage]: <https://gitlab.com/amalchuk/scienco/badges/master/coverage.svg?style=flat-square>
+[license]: <https://img.shields.io/github/license/amalchuk/scienco?color=blue&style=flat-square>
