@@ -6,9 +6,9 @@ Scienco
 
 Calculate the readability of text using one of a variety of computed indexes including:
 
-- **Flesch-Kincaid score**
-- **Automated readability index**
-- **Coleman-Liau index**
+- [Flesch-Kincaid score](api_reference.md#flesch_reading_ease_score)
+- [Automated readability index](api_reference.md#automated_readability_index)
+- [Coleman-Liau index](api_reference.md#coleman_liau_index)
 
 Requirements
 ------------
