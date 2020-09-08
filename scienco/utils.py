@@ -4,10 +4,10 @@ from typing import TypeVar
 
 __all__ = ("clamp",)
 
-C = TypeVar("C", float, str, bytes)
+_C = TypeVar("_C", float, str, bytes)
 
 
-def clamp(value: C, min_value: C, max_value: C) -> C:
+def clamp(value: _C, min_value: _C, max_value: _C) -> _C:
     """
     Limits a provided value between two specified bounds.
     """
