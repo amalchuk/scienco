@@ -4,7 +4,11 @@ Scienco
 [![coverage report][coverage]][homepage]
 [![distribution][license]](LICENSE)
 
-Calculate the readability of text using one of a variety of computed indexes.
+Calculate the readability of text using one of a variety of computed indexes including:
+
+- **Flesch-Kincaid score**
+- **Automated readability index**
+- **Coleman-Liau index**
 
 Requirements
 ------------
@@ -13,7 +17,7 @@ Python 3.6+
 Installation
 ------------
 ```
-$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.6#egg=scienco
+$ pip install git+https://gitlab.com/amalchuk/scienco.git@development#egg=scienco
 ```
 
 Usage
