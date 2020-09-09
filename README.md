@@ -6,9 +6,9 @@ Scienco
 
 Calculate the readability of text using one of a variety of computed indexes including:
 
-- **Flesch-Kincaid score**
-- **Automated readability index**
-- **Coleman-Liau index**
+- Flesch-Kincaid score
+- Automated readability index
+- Coleman-Liau index
 
 Requirements
 ------------
@@ -35,6 +35,12 @@ Indexes(flesch_reading_ease_score=33.43, automated_readability_index=7.51, colem
 Distribution
 ------------
 This project is licensed under the terms of the [MIT License](LICENSE).
+
+Links
+-----
+- Documentation: <https://amalchuk.gitlab.io/scienco>
+- Code: <https://gitlab.com/amalchuk/scienco>
+- GitHub mirror: <https://github.com/amalchuk/scienco>
 
 [homepage]: <https://gitlab.com/amalchuk/scienco>
 [pipeline]: <https://gitlab.com/amalchuk/scienco/badges/master/pipeline.svg?style=flat-square>
