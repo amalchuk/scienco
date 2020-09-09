@@ -14,10 +14,10 @@ install-development:
 	@echo "Installing the package in the development mode"
 	@python -m pip install pip setuptools wheel --upgrade --quiet --no-cache-dir
 	@python setup.py develop --quiet
-	@python -m pip install --requirement requirements-dev.txt --upgrade --quiet --no-cache-dir
+	@pip install --requirement requirements-dev.txt --upgrade --quiet --no-cache-dir
 
 upload: build
-	@echo "Upload package to a PyPI"
+	@echo "Upload to the package registry"
 	@find dist -type f | xargs twine upload --disable-progress-bar
 
 docs:

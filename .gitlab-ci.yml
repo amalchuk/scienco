@@ -13,6 +13,10 @@ stages:
   stage: testing
   script: make test
 
+.publishing_template: &publishing
+  stage: publishing
+  dependencies: []
+
 testing:py3.6:
   <<: *python_matrix
   image: python:3.6-buster
@@ -32,8 +36,20 @@ code quality:
     - testing:py3.8
   script: make coverage
 
+build package:
+  <<: *publishing
+  script: make build
+  artifacts:
+    name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}
+    paths:
+      - dist
+    expire_in: 1 week
+  only:
+    - master
+    - tags
+
 deployment:
-  stage: publishing
+  <<: *publishing
   variables:
     TWINE_USERNAME: ${CI_REGISTRY_USER}
     TWINE_PASSWORD: ${CI_JOB_TOKEN}
@@ -41,10 +57,9 @@ deployment:
   script: make upload
   only:
     - master
-    - tags
 
 pages:
-  stage: publishing
+  <<: *publishing
   script: make docs
   artifacts:
     paths:
@@ -52,4 +67,3 @@ pages:
     expire_in: 1 week
   only:
     - master
-    - tags
