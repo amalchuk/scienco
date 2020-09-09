@@ -17,7 +17,7 @@ Python 3.6+
 Installation
 ------------
 ```
-$ pip install git+https://gitlab.com/amalchuk/scienco.git@development#egg=scienco
+$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.7.1#egg=scienco
 ```
 
 Usage

@@ -16,7 +16,7 @@ install-development:
 	@python setup.py develop --quiet
 	@pip install --requirement requirements-dev.txt --upgrade --quiet --no-cache-dir
 
-upload: build
+upload:
 	@echo "Upload to the package registry"
 	@find dist -type f | xargs twine upload --disable-progress-bar
 
