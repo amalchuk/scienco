@@ -38,7 +38,7 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 
 Links
 -----
-- Documentation: <https://amalchuk.gitlab.io/scienco>
+- Documentation: <https://scienco.readable.pw>
 - Code: <https://gitlab.com/amalchuk/scienco>
 - GitHub mirror: <https://github.com/amalchuk/scienco>
 

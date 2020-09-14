@@ -1,7 +1,7 @@
 site_name: Scienco
 site_author: Andrew Malchuk
 site_description: Calculate the readability of text using one of a variety of computed indexes
-site_url: https://amalchuk.gitlab.io/scienco
+site_url: https://scienco.readable.pw
 
 site_dir: public
 theme:
