@@ -7,21 +7,23 @@ from string import ascii_letters
 from typing import Iterator
 
 from scienco.metrics.constants import cyrillic_letters
-from scienco.metrics.constants import sentences_pattern
-from scienco.metrics.constants import words_pattern
+from scienco.metrics.constants import sentences_pattern as _sentences_pattern
+from scienco.metrics.constants import words_pattern as _words_pattern
 from scienco.types import Metrics
 
 __all__ = ("compute_metrics", "sentences", "syllables", "words", "Metrics")
+
+sentences_pattern = re.compile(_sentences_pattern, re.UNICODE)
+words_pattern = re.compile(_words_pattern, re.UNICODE)
 
 
 def sentences(string: str) -> Iterator[str]:
     """
     Tokenize a paragraph into sentences.
     """
-    pattern = re.compile(sentences_pattern, re.UNICODE)
     previous = 0
 
-    for match in pattern.finditer(string):
+    for match in sentences_pattern.finditer(string):
         delimiter = match.group(1)
         start = match.start()
 
@@ -36,9 +38,7 @@ def words(string: str) -> Iterator[str]:
     """
     Tokenize a sentence into words.
     """
-    pattern = re.compile(words_pattern, re.UNICODE)
-
-    for match in pattern.finditer(string):
+    for match in words_pattern.finditer(string):
         word = match.group(1)
 
         if word.isalnum():
