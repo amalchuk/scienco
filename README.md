@@ -17,7 +17,7 @@ Python 3.6+
 Installation
 ------------
 ```
-$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.7.1#egg=scienco
+$ pip install git+https://gitlab.com/amalchuk/scienco.git@v0.1.8#egg=scienco
 ```
 
 Usage
@@ -26,7 +26,7 @@ Usage
 >>> import scienco
 >>> metrics = scienco.compute_metrics("Lorem ipsum dolor sit amet ...")
 >>> metrics
-Metrics(is_russian=False, sentences=32, words=250, letters=1329, syllables=489)
+Metrics(sentences=32, words=250, letters=1329, syllables=489, is_russian=False)
 >>> indexes = scienco.compute_indexes(sentences=32, words=250, letters=1329, syllables=489, is_russian=False)
 >>> indexes
 Indexes(flesch_reading_ease_score=33.43, automated_readability_index=7.51, coleman_liau_index=11.67)
@@ -38,7 +38,7 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 
 Links
 -----
-- Documentation: <https://amalchuk.gitlab.io/scienco>
+- Documentation: <https://scienco.readable.pw>
 - Code: <https://gitlab.com/amalchuk/scienco>
 - GitHub mirror: <https://github.com/amalchuk/scienco>
 

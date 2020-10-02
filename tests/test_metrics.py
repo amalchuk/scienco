@@ -55,9 +55,9 @@ def test_compute_metrics() -> None:
     string = "Привет. Это я. Просто хотела узнать, не хотел бы ты встретиться спустя все эти годы."
     metrics = compute_metrics(string)
     assert isinstance(metrics, Metrics)
-    assert metrics == Metrics(is_russian=True, sentences=3, words=15, letters=66, syllables=27)
+    assert metrics == Metrics(sentences=3, words=15, letters=66, syllables=27, is_russian=True)
 
     string = "Hello. It's me. I was wondering if after all these years you'd like to meet."
     metrics = compute_metrics(string)
     assert isinstance(metrics, Metrics)
-    assert metrics == Metrics(is_russian=False, sentences=3, words=17, letters=57, syllables=21)
+    assert metrics == Metrics(sentences=3, words=17, letters=57, syllables=21, is_russian=False)

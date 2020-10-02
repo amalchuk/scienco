@@ -7,21 +7,23 @@ from string import ascii_letters
 from typing import Iterator
 
 from scienco.metrics.constants import cyrillic_letters
-from scienco.metrics.constants import sentences_pattern
-from scienco.metrics.constants import words_pattern
+from scienco.metrics.constants import sentences_pattern as _sentences_pattern
+from scienco.metrics.constants import words_pattern as _words_pattern
 from scienco.types import Metrics
 
 __all__ = ("compute_metrics", "sentences", "syllables", "words", "Metrics")
+
+sentences_pattern = re.compile(_sentences_pattern, re.UNICODE)
+words_pattern = re.compile(_words_pattern, re.UNICODE)
 
 
 def sentences(string: str) -> Iterator[str]:
     """
     Tokenize a paragraph into sentences.
     """
-    pattern = re.compile(sentences_pattern, re.UNICODE)
     previous = 0
 
-    for match in pattern.finditer(string):
+    for match in sentences_pattern.finditer(string):
         delimiter = match.group(1)
         start = match.start()
 
@@ -36,9 +38,7 @@ def words(string: str) -> Iterator[str]:
     """
     Tokenize a sentence into words.
     """
-    pattern = re.compile(words_pattern, re.UNICODE)
-
-    for match in pattern.finditer(string):
+    for match in words_pattern.finditer(string):
         word = match.group(1)
 
         if word.isalnum():
@@ -62,20 +62,20 @@ def syllables(string: str) -> int:
     count = 0
 
     if any(vowel in string for vowel in vowels):
-        count += sum(map(string.count, vowels))
-        count -= string.endswith("\x65")
+        count = sum(map(string.count, vowels))
+        count = count - string.endswith("\x65")
 
         diphthongs: Iterator[str] = map("".join, product(vowels, repeat=2))
-        count -= sum(map(string.count, diphthongs))
+        count = count - sum(map(string.count, diphthongs))
 
         triphthongs: Iterator[str] = map("".join, product(vowels, repeat=3))
-        count -= sum(map(string.count, triphthongs))
+        count = count - sum(map(string.count, triphthongs))
 
         if string.endswith("\x6C\x65") or string.endswith("\x6C\x65\x73"):
             string, _ = string.split("\x6C\x65", 1)
-            count += all(not string.endswith(vowel) for vowel in vowels)
+            count = count + all(not string.endswith(vowel) for vowel in vowels)
 
-    return count or 1
+    return max(1, count)
 
 
 def compute_metrics(string: str) -> Metrics:
@@ -88,10 +88,10 @@ def compute_metrics(string: str) -> Metrics:
     is_russian = russian_letters > english_letters
     del english_letters, russian_letters
 
-    sentences_list = tuple(sentences(string))
+    sentences_list = list(sentences(string))
     sentences_count = len(sentences_list)
 
-    words_list = tuple(chain.from_iterable(map(words, sentences_list)))
+    words_list = list(chain.from_iterable(map(words, sentences_list)))
     words_count = len(words_list)
     del sentences_list
 
@@ -100,8 +100,8 @@ def compute_metrics(string: str) -> Metrics:
     del words_list
 
     return Metrics(
-        is_russian=is_russian,
         sentences=sentences_count,
         words=words_count,
         letters=letters_count,
-        syllables=syllables_count)
+        syllables=syllables_count,
+        is_russian=is_russian)
