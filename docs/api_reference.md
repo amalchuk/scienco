@@ -171,11 +171,11 @@ The [`namedtuple`][namedtuple] object with specified fields.
 **Syntax:**
 ```python
 class Metrics(NamedTuple):
-    is_russian: bool
     sentences: int
     words: int
     letters: int
     syllables: int
+    is_russian: bool
 ```
 
 ### Indexes
