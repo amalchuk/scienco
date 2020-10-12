@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name="scienco",
-    version="0.1.8",
+    version="0.1.8.1",
     author="Andrew Malchuk",
     author_email="andrew.malchuk@yandex.ru",
     description="Calculate the readability of text using one of a variety of computed indexes",
@@ -27,6 +27,7 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: Implementation :: CPython",
         "Topic :: Text Processing :: Indexing",
         "Typing :: Typed"

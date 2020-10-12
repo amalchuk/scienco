@@ -1,4 +1,4 @@
-image: python:3.8-buster
+image: python:3.9-buster
 
 before_script:
   - python --version
@@ -24,6 +24,10 @@ testing:py3.7:
 
 testing:py3.8:
   <<: *python_matrix
+  image: python:3.8-buster
+
+testing:py3.9:
+  <<: *python_matrix
 
 code quality:
   stage: coverage
@@ -31,6 +35,7 @@ code quality:
     - testing:py3.6
     - testing:py3.7
     - testing:py3.8
+    - testing:py3.9
   script: make coverage
 
 build package:
