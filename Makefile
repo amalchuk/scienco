@@ -8,7 +8,7 @@ install:
 
 build:
 	@echo "Building the package"
-	@python setup.py build bdist_wheel sdist
+	@python setup.py sdist
 
 install-development:
 	@echo "Installing the package in the development mode"
