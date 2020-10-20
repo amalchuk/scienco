@@ -1,7 +1,0 @@
-coverage
-isort
-mkdocs
-mkdocs-material
-mypy
-pytest
-twine

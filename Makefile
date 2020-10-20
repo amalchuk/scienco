@@ -1,36 +1,34 @@
-.PHONY: all install build install-development upload docs test coverage clean
+.PHONY: all install install-development build upload docs test coverage clean
 
 all: install clean
 
 install:
 	@echo "Installing the package"
-	@python setup.py install --quiet
-
-build:
-	@echo "Building the package"
-	@python setup.py sdist
+	@poetry install --no-dev --quiet --no-interaction
 
 install-development:
 	@echo "Installing the package in the development mode"
-	@python -m pip install pip setuptools wheel --upgrade --quiet --no-cache-dir
-	@python setup.py develop --quiet
-	@pip install --requirement requirements-dev.txt --upgrade --quiet --no-cache-dir
+	@poetry install --no-root --quiet --no-interaction
+
+build:
+	@echo "Building the package"
+	@poetry build --format sdist --quiet --no-interaction
 
 upload:
 	@echo "Upload to the package registry"
-	@find dist -type f | xargs twine upload --disable-progress-bar
+	@poetry publish --quiet --no-interaction
 
 docs:
 	@echo "Build the documentation"
-	@mkdocs build --clean
+	@poetry run mkdocs build --clean
 
 test:
 	@echo "Running the test cases"
-	@coverage run -m pytest
+	@poetry run coverage run -m pytest --exitfirst --quiet
 
 coverage: test
 	@echo "Analyzing the code coverage for all test cases"
-	@coverage report
+	@poetry run coverage report
 
 clean:
 	@echo "Delete all temporary files"
