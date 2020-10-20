@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import re
 from itertools import chain
 from itertools import product
+import re
 from string import ascii_letters
 from typing import Iterator
 
