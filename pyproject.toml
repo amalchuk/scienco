@@ -1,6 +1,6 @@
 [tool.poetry]
 name          = "scienco"
-version       = "0.2.1"
+version       = "0.2.2b0"
 authors       = ["Andrew Malchuk <andrew.malchuk@yandex.ru>"]
 description   = "Calculate the readability of text using one of a variety of computed indexes"
 keywords      = ["python", "readability", "indexes", "score"]
