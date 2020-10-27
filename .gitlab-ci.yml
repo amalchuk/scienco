@@ -1,5 +1,10 @@
 image: registry.gitlab.com/amalchuk/docker-poetry:1.1.3-py3.9
 
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - poetry.lock
+
 before_script:
   - poetry config virtualenvs.in-project true
   - make install-development
