@@ -1,4 +1,4 @@
-image: registry.gitlab.com/amalchuk/docker-poetry:1.1.3-py3.9
+image: registry.gitlab.com/amalchuk/docker-poetry:1.1.4-py3.9
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -21,15 +21,15 @@ stages:
 
 testing:py3.6:
   <<: *python_matrix
-  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.3-py3.6
+  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.4-py3.6
 
 testing:py3.7:
   <<: *python_matrix
-  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.3-py3.7
+  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.4-py3.7
 
 testing:py3.8:
   <<: *python_matrix
-  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.3-py3.8
+  image: registry.gitlab.com/amalchuk/docker-poetry:1.1.4-py3.8
 
 testing:py3.9:
   <<: *python_matrix
