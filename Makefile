@@ -1,4 +1,4 @@
-.PHONY: all install install-development build upload docs test coverage clean
+.PHONY: all install install-development build update upload docs test coverage clean
 
 all: install clean
 
@@ -13,6 +13,10 @@ install-development:
 build:
 	@echo "Building the package"
 	@poetry build --format sdist --quiet --no-interaction
+
+update:
+	@echo "Downloading the latest versions of the dependencies"
+	@poetry update --quiet --no-interaction
 
 upload:
 	@echo "Upload to the package registry"
