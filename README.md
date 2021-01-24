@@ -23,7 +23,7 @@ $ pip install scienco
 
 Usage
 -----
-```pycon
+```python
 >>> import scienco
 >>> metrics = scienco.compute_metrics("Lorem ipsum dolor sit amet ...")
 >>> metrics

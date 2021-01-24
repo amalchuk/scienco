@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from typing import List
+
 from scienco.types import FloatEnum
 
-__all__ = ("ARI_EN", "ARI_RU", "CLI_EN", "CLI_RU", "FRES_EN", "FRES_RU")
+__all__: List[str] = ["ARI_EN", "ARI_RU", "CLI_EN", "CLI_RU", "FRES_EN", "FRES_RU"]
 
 
 class FRES_EN(FloatEnum):

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from typing import TypeVar
+from typing import List, TypeVar
 
-__all__ = ("clamp",)
+__all__: List[str] = ["clamp"]
 
 _C = TypeVar("_C", float, str, bytes)
 
