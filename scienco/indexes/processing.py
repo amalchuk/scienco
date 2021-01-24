@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from typing import List
+
 from scienco.indexes.constants import ARI_EN
 from scienco.indexes.constants import ARI_RU
 from scienco.indexes.constants import CLI_EN
@@ -9,7 +11,9 @@ from scienco.indexes.constants import FRES_RU
 from scienco.types import Indexes
 from scienco.utils import clamp
 
-__all__ = ("automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score", "Indexes")
+__all__: List[str] = [
+    "automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score", "Indexes"
+]
 
 
 def flesch_reading_ease_score(sentences: int, words: int, syllables: int, *, is_russian: bool = False) -> float:

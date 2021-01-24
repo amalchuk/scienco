@@ -20,7 +20,7 @@ flesch_reading_ease_score(sentences: int, words: int, syllables: int, *, is_russ
 - **is_russian** - specify whether you are using Russian language (otherwise English will be used)
 
 **Example:**
-```pycon
+```python
 >>> flesch_reading_ease_score(sentences=100, words=10000, syllables=2500, is_russian=True)
 76.73
 ```
@@ -46,7 +46,7 @@ automated_readability_index(sentences: int, words: int, letters: int, *, is_russ
 **Returns:** `float`
 
 **Example:**
-```pycon
+```python
 >>> automated_readability_index(sentences=100, words=10000, letters=30000, is_russian=True)
 15.79
 ```
@@ -70,7 +70,7 @@ coleman_liau_index(sentences: int, words: int, letters: int, *, is_russian: bool
 **Returns:** `float`
 
 **Example:**
-```pycon
+```python
 >>> coleman_liau_index(sentences=100, words=10000, letters=30000, is_russian=False)
 1.54
 ```
@@ -95,7 +95,7 @@ compute_indexes(sentences: int, words: int, letters: int, syllables: int, *, is_
 **Returns:** [`Indexes`](#indexes)
 
 **Example:**
-```pycon
+```python
 >>> compute_indexes(sentences=100, words=10000, letters=30000, syllables=2500, is_russian=False)
 Indexes(flesch_reading_ease_score=84.19, automated_readability_index=42.7, coleman_liau_index=1.54)
 ```
