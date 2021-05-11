@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import Final, List
 
 from scienco.indexes.constants import ARI_EN
 from scienco.indexes.constants import ARI_RU
@@ -11,7 +11,7 @@ from scienco.indexes.constants import FRES_RU
 from scienco.types import Indexes
 from scienco.utils import clamp
 
-__all__: List[str] = [
+__all__: Final[List[str]] = [
     "automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score", "Indexes"
 ]
 

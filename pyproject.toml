@@ -1,6 +1,6 @@
 [tool.poetry]
 name          = "scienco"
-version       = "0.4.1"
+version       = "1.0.0"
 authors       = ["Andrew Malchuk <andrew.malchuk@yandex.ru>"]
 description   = "Calculate the readability of text using one of a variety of computed indexes"
 keywords      = ["python", "readability", "indexes", "score"]
@@ -10,14 +10,14 @@ readme        = "README.md"
 license       = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-isort           = "^5.7"
+isort           = "^5.8"
 mkdocs          = "^1.1"
-mkdocs-material = "^6.2"
+mkdocs-material = "^7.1"
 pytest          = "^6.2"
-coverage        = { version = "^5.3", extras = ["toml"]}
+coverage        = { version = "^5.5", extras = ["toml"]}
 mypy            = { version = "*", allow-prereleases = true }
 
 [tool.coverage.run]
