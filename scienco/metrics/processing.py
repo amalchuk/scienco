@@ -4,7 +4,7 @@ from itertools import chain
 from itertools import product
 import re
 from string import ascii_letters
-from typing import Final, Iterator, List
+from typing import Final, Iterator, List, Pattern
 
 from scienco.metrics.constants import cyrillic_letters
 from scienco.metrics.constants import sentences_pattern as _sentences_pattern
@@ -13,8 +13,8 @@ from scienco.types import Metrics
 
 __all__: Final[List[str]] = ["compute_metrics", "sentences", "syllables", "words", "Metrics"]
 
-sentences_pattern: Final[re.Pattern[str]] = re.compile(_sentences_pattern, re.UNICODE)
-words_pattern: Final[re.Pattern[str]] = re.compile(_words_pattern, re.UNICODE)
+sentences_pattern: Final[Pattern[str]] = re.compile(_sentences_pattern, re.UNICODE)
+words_pattern: Final[Pattern[str]] = re.compile(_words_pattern, re.UNICODE)
 
 
 def sentences(string: str, /) -> Iterator[str]:
