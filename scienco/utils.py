@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from typing import Final, List, TypeVar
+from typing import Final, Tuple, TypeVar
 
-__all__: Final[List[str]] = ["clamp"]
+__all__: Final[Tuple[str, ...]] = ("clamp",)
 
 _C = TypeVar("_C", float, str, bytes)
 

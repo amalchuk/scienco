@@ -4,7 +4,7 @@
 Calculate the readability of text using one of a variety of computed indexes.
 """
 
-from typing import Final, List
+from typing import Final, Tuple
 
 from scienco.indexes import automated_readability_index
 from scienco.indexes import coleman_liau_index
@@ -17,8 +17,8 @@ from scienco.metrics import words
 from scienco.types import Indexes
 from scienco.types import Metrics
 
-__all__: Final[List[str]] = [
+__all__: Final[Tuple[str, ...]] = (
     "automated_readability_index", "coleman_liau_index", "compute_indexes", "flesch_reading_ease_score",
     "compute_metrics", "sentences", "syllables", "words",
     "Indexes", "Metrics"
-]
+)

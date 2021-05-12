@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from enum import Enum
-from typing import List, NamedTuple
+from typing import Final, NamedTuple, Tuple
 
-__all__: List[str] = ["FloatEnum", "Indexes", "Metrics"]
+__all__: Final[Tuple[str, ...]] = ("FloatEnum", "Indexes", "Metrics")
 
 
 class FloatEnum(float, Enum):

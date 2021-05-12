@@ -4,14 +4,16 @@ from itertools import chain
 from itertools import product
 import re
 from string import ascii_letters
-from typing import Final, Iterator, List, Pattern
+from typing import Final, Iterator, Pattern, Tuple
 
 from scienco.metrics.constants import cyrillic_letters
+from scienco.metrics.constants import english_vowels
+from scienco.metrics.constants import russian_vowels
 from scienco.metrics.constants import sentences_pattern as _sentences_pattern
 from scienco.metrics.constants import words_pattern as _words_pattern
 from scienco.types import Metrics
 
-__all__: Final[List[str]] = ["compute_metrics", "sentences", "syllables", "words", "Metrics"]
+__all__: Final[Tuple[str, ...]] = ("compute_metrics", "sentences", "syllables", "words", "Metrics")
 
 sentences_pattern: Final[Pattern[str]] = re.compile(_sentences_pattern, re.UNICODE)
 words_pattern: Final[Pattern[str]] = re.compile(_words_pattern, re.UNICODE)
@@ -55,29 +57,24 @@ def syllables(string: str, /) -> int:
     """
     string = string.lower() if not string.islower() else string
 
-    # Russian vowels:
-    vowels: str = "\u0430\u0435\u0451\u0438\u043E\u0443\u044B\u044D\u044E\u044F"
+    if any(vowel in string for vowel in russian_vowels):
+        return sum(map(string.count, russian_vowels))
 
-    if any(vowel in string for vowel in vowels):
-        return sum(map(string.count, vowels))
-
-    # English vowels:
-    vowels = "\x61\x65\x69\x6F\x75\x79"
     count: int = 0
 
-    if any(vowel in string for vowel in vowels):
-        count = sum(map(string.count, vowels))
+    if any(vowel in string for vowel in english_vowels):
+        count = sum(map(string.count, english_vowels))
         count = count - string.endswith("\x65")
 
-        diphthongs: Iterator[str] = map("".join, product(vowels, repeat=2))
+        diphthongs: Iterator[str] = map("".join, product(english_vowels, repeat=2))
         count = count - sum(map(string.count, diphthongs))
 
-        triphthongs: Iterator[str] = map("".join, product(vowels, repeat=3))
+        triphthongs: Iterator[str] = map("".join, product(english_vowels, repeat=3))
         count = count - sum(map(string.count, triphthongs))
 
         if string.endswith("\x6C\x65") or string.endswith("\x6C\x65\x73"):
             string, _ = string.split("\x6C\x65", 1)
-            count = count + all(not string.endswith(vowel) for vowel in vowels)
+            count = count + all(not string.endswith(vowel) for vowel in english_vowels)
 
     return max(1, count)
 
@@ -92,10 +89,10 @@ def compute_metrics(string: str, /) -> Metrics:
     is_russian: bool = russian_letters > english_letters
     del english_letters, russian_letters
 
-    sentences_list: List[str] = list(sentences(string))
+    sentences_list: Tuple[str, ...] = tuple(sentences(string))
     sentences_count: int = len(sentences_list)
 
-    words_list: List[str] = list(chain.from_iterable(map(words, sentences_list)))
+    words_list: Tuple[str, ...] = tuple(chain.from_iterable(map(words, sentences_list)))
     words_count: int = len(words_list)
     del sentences_list
 

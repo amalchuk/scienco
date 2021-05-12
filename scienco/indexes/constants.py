@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from typing import Final, List
+from typing import Final, Tuple
 
 from scienco.types import FloatEnum
 
-__all__: Final[List[str]] = ["ARI_EN", "ARI_RU", "CLI_EN", "CLI_RU", "FRES_EN", "FRES_RU"]
+__all__: Final[Tuple[str, ...]] = ("ARI_EN", "ARI_RU", "CLI_EN", "CLI_RU", "FRES_EN", "FRES_RU")
 
 
 class FRES_EN(FloatEnum):
