@@ -13,7 +13,7 @@ Calculate the readability of text using one of a variety of computed indexes inc
 
 Requirements
 ------------
-Python 3.6+
+Python 3.8+
 
 Installation
 ------------
